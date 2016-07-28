@@ -18,7 +18,9 @@ namespace RestaurantApp.Controllers
         // GET: MainCourses
         public async Task<ActionResult> Index()
         {
-            return View(await db.MainCourses.ToListAsync());
+			ViewBag.Title = "Main Course";
+			ViewBag.Data = await db.MainCourses.ToListAsync();
+			return View("MenuItems/Index");
         }
 
         // GET: MainCourses/Details/5
@@ -33,13 +35,13 @@ namespace RestaurantApp.Controllers
             {
                 return HttpNotFound();
             }
-            return View(mainCourse);
+            return View("MenuItems/Details", mainCourse);
         }
 
         // GET: MainCourses/Create
         public ActionResult Create()
         {
-            return View();
+            return View("MenuItems/Create");
         }
 
         // POST: MainCourses/Create
@@ -53,10 +55,10 @@ namespace RestaurantApp.Controllers
             {
                 db.MainCourses.Add(mainCourse);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("MenuItems/Index");
             }
 
-            return View(mainCourse);
+            return View("MenuItems/Create", mainCourse);
         }
 
         // GET: MainCourses/Edit/5
@@ -71,7 +73,7 @@ namespace RestaurantApp.Controllers
             {
                 return HttpNotFound();
             }
-            return View(mainCourse);
+            return View("MenuItems/Edit", mainCourse);
         }
 
         // POST: MainCourses/Edit/5
@@ -85,9 +87,9 @@ namespace RestaurantApp.Controllers
             {
                 db.Entry(mainCourse).State = EntityState.Modified;
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("MenuItems/Index");
             }
-            return View(mainCourse);
+            return View("MenuItems/Edit", mainCourse);
         }
 
         // GET: MainCourses/Delete/5
@@ -102,7 +104,7 @@ namespace RestaurantApp.Controllers
             {
                 return HttpNotFound();
             }
-            return View(mainCourse);
+            return View("MenuItems/Delete", mainCourse);
         }
 
         // POST: MainCourses/Delete/5
@@ -113,7 +115,7 @@ namespace RestaurantApp.Controllers
             MainCourse mainCourse = await db.MainCourses.FindAsync(id);
             db.MainCourses.Remove(mainCourse);
             await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction("MenuItems/Index");
         }
 
         protected override void Dispose(bool disposing)

@@ -18,7 +18,9 @@ namespace RestaurantApp.Controllers
         // GET: Desserts
         public async Task<ActionResult> Index()
         {
-            return View(await db.Desserts.ToListAsync());
+			ViewBag.Title = "Desserts";
+			ViewBag.Data = await db.Desserts.ToListAsync();
+			return View("MenuItems/Index");
         }
 
         // GET: Desserts/Details/5
@@ -33,13 +35,13 @@ namespace RestaurantApp.Controllers
             {
                 return HttpNotFound();
             }
-            return View(dessert);
+            return View("MenuItems/Details", dessert);
         }
 
         // GET: Desserts/Create
         public ActionResult Create()
         {
-            return View();
+            return View("MenuItems/Create");
         }
 
         // POST: Desserts/Create
@@ -53,10 +55,10 @@ namespace RestaurantApp.Controllers
             {
                 db.Desserts.Add(dessert);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("MenuItems/Index");
             }
 
-            return View(dessert);
+            return View("MenuItems/Create", dessert);
         }
 
         // GET: Desserts/Edit/5
@@ -71,7 +73,7 @@ namespace RestaurantApp.Controllers
             {
                 return HttpNotFound();
             }
-            return View(dessert);
+            return View("MenuItems/Edit", dessert);
         }
 
         // POST: Desserts/Edit/5
@@ -85,9 +87,9 @@ namespace RestaurantApp.Controllers
             {
                 db.Entry(dessert).State = EntityState.Modified;
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("MenuItems/Index");
             }
-            return View(dessert);
+            return View("MenuItems/Edit", dessert);
         }
 
         // GET: Desserts/Delete/5
@@ -102,7 +104,7 @@ namespace RestaurantApp.Controllers
             {
                 return HttpNotFound();
             }
-            return View(dessert);
+            return View("MenuItems/Delete", dessert);
         }
 
         // POST: Desserts/Delete/5
@@ -113,7 +115,7 @@ namespace RestaurantApp.Controllers
             Dessert dessert = await db.Desserts.FindAsync(id);
             db.Desserts.Remove(dessert);
             await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction("MenuItems/Index");
         }
 
         protected override void Dispose(bool disposing)

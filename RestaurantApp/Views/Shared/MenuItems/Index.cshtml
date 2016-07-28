@@ -1,0 +1,81 @@
+﻿
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+	<tr>
+		<th>
+			Name
+		</th>
+		<th>
+			Thumbnail
+		</th>
+		<th>
+			Full Image
+		</th>
+		<th>
+			Short Description
+		</th>
+		<th>
+			Full Description
+		</th>
+		<th>
+			Price
+		</th>
+		<th></th>
+	</tr>
+
+	@foreach (var item in ViewBag.Data)
+	{
+		int id = -1;
+		string title = ViewBag.Title;
+
+		switch (title)
+		{
+			case "Appetizers":
+				id = item.AppetizerId;
+				break;
+			case "Drinks":
+				id = item.DrinkId;
+				break;
+			case "Main Course":
+				id = item.MainCourseId;
+				break;
+			case "Desserts":
+				id = item.DessertId;
+				break;
+		}
+
+		<tr>
+			<td>
+				@Html.Raw(item.Name)
+			</td>
+			<td>
+				@Html.Raw(item.ThumbNail)
+			</td>
+			<td>
+				@Html.Raw(item.FullImage)
+			</td>
+			<td>
+				@Html.Raw(item.ShortDesc)
+			</td>
+			<td>
+				@Html.Raw(item.FullDesc)
+			</td>
+			<td>
+				@Html.Raw(item.Price)
+			</td>
+			<td>
+				@Html.ActionLink("Edit", "Edit", id) |
+				@Html.ActionLink("Details", "Details", id) |
+				@Html.ActionLink("Delete", "Delete", id)
+			</td>
+		</tr>
+	}
+</table>

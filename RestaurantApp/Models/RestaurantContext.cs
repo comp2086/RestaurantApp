@@ -4,6 +4,7 @@ namespace RestaurantApp.Models
 	using System.Data.Entity;
 	using System.ComponentModel.DataAnnotations.Schema;
 	using System.Linq;
+	using System.Collections.Generic;
 
 	public partial class RestaurantContext : DbContext
 	{
@@ -16,5 +17,10 @@ namespace RestaurantApp.Models
 		public virtual DbSet<Appetizer> Appetizers { get; set; }
 		public virtual DbSet<MainCourse> MainCourses { get; set; }
 		public virtual DbSet<Dessert> Desserts { get; set; }
+
+		public static IEnumerable<T> createList<T>(T t)
+		{
+			return new List<T>();
+		}
 	}
 }

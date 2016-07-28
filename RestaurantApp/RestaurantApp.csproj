@@ -269,34 +269,14 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\MenuItems\MainCourse.cshtml" />
-    <Content Include="Views\MenuItems\Appetizer.cshtml" />
-    <Content Include="Views\MenuItems\Desert.cshtml" />
-    <Content Include="Views\MenuItems\Drink.cshtml" />
-    <Content Include="Views\Drinks\Create.cshtml" />
-    <Content Include="Views\Drinks\Delete.cshtml" />
-    <Content Include="Views\Drinks\Details.cshtml" />
-    <Content Include="Views\Drinks\Edit.cshtml" />
-    <Content Include="Views\Drinks\Index.cshtml" />
-    <Content Include="Views\Appetizers\Create.cshtml" />
-    <Content Include="Views\Appetizers\Delete.cshtml" />
-    <Content Include="Views\Appetizers\Details.cshtml" />
-    <Content Include="Views\Appetizers\Edit.cshtml" />
-    <Content Include="Views\Appetizers\Index.cshtml" />
-    <Content Include="Views\Desserts\Create.cshtml" />
-    <Content Include="Views\Desserts\Delete.cshtml" />
-    <Content Include="Views\Desserts\Details.cshtml" />
-    <Content Include="Views\Desserts\Edit.cshtml" />
-    <Content Include="Views\Desserts\Index.cshtml" />
-    <Content Include="Views\MainCourses\Create.cshtml" />
-    <Content Include="Views\MainCourses\Delete.cshtml" />
-    <Content Include="Views\MainCourses\Details.cshtml" />
-    <Content Include="Views\MainCourses\Edit.cshtml" />
-    <Content Include="Views\MainCourses\Index.cshtml" />
+    <Content Include="Views\Shared\MenuItems\Create.cshtml" />
+    <Content Include="Views\Shared\MenuItems\Delete.cshtml" />
+    <Content Include="Views\Shared\MenuItems\Details.cshtml" />
+    <Content Include="Views\Shared\MenuItems\Edit.cshtml" />
+    <Content Include="Views\Shared\MenuItems\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Restaurant\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
