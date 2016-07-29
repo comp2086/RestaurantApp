@@ -41,7 +41,7 @@ namespace RestaurantApp.Controllers
         // GET: Drinks/Create
         public ActionResult Create()
         {
-            return View("Create");
+            return View("MenuItems/Create");
         }
 
         // POST: Drinks/Create
@@ -55,7 +55,7 @@ namespace RestaurantApp.Controllers
             {
                 db.Drinks.Add(drink);
                 await db.SaveChangesAsync();
-                return RedirectToAction("MenuItems/Index");
+                return RedirectToAction("Index");
             }
 
             return View("MenuItems/Create", drink);

@@ -55,7 +55,7 @@ namespace RestaurantApp.Controllers
             {
                 db.MainCourses.Add(mainCourse);
                 await db.SaveChangesAsync();
-                return RedirectToAction("MenuItems/Index");
+                return RedirectToAction("Index");
             }
 
             return View("MenuItems/Create", mainCourse);
